@@ -6,8 +6,8 @@ GPIO.set_mode(GPIO.BCM)
 GPIO_TRIGGER = 18
 GPIO_ECHO = 24
 
-GPIO.setup(GPIO_TRIGGER, GPIO.out)
-GPIO.setup(GPIO_ECHO, GPIO.in)
+GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
+GPIO.setup(GPIO_ECHO, GPIO.IN)
 
 def distance():
 	GPIO.output(GPIO_TRIGGER, True)
