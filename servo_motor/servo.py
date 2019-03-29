@@ -23,11 +23,11 @@ def getch():
 
 
 def right():
-	p.ChangeDutyCycle(100)
+	p.ChangeDutyCycle(10)
 
 	
 def left():
-	p.ChangeDutyCycle(100)
+	p.ChangeDutyCycle(7.5)
 	
 
 try:
@@ -41,6 +41,13 @@ try:
 		if(char == "q"):
 			print("q press")
 			left()
+			
+		if(char == "x"):
+			pass
+			sleep(5)
+			
+		char = ""
+			
 			
 #		p.ChangeDutyCycle(0.5)  # Move servo to 0 degrees
 #		sleep(1)                # Delay of 1 sec
