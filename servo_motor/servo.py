@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO     # Importing RPi library to use the GPIO pins
-from time import sleep      # Importing sleep from time library to add delay in code
 import keyboard
+import sys, tty, termios, time
 
 servo_pin = 21      # Initializing the GPIO 21 for servo motor
 
@@ -10,21 +10,35 @@ GPIO.setup(servo_pin, GPIO.OUT)     # Declaring GPIO 21 as output pin
 p = GPIO.PWM(servo_pin, 50)     # Created PWM channel at 50Hz frequency
 p.start(2.5) 
 
+def getch():
+	fd = sys.stdin.fileno()
+	old_settings = termios.tcgetattr(fd)
+	try:
+			tty.setraw(sys.stdin.fileno())
+			ch = sys.stdin.read(1)
+	finally:
+			termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+	return ch
+
+
 def right():
 	p.ChangeDutyCycle(4.5)
+
 	
 def left():
 	p.ChangeDutyCycle(0.5)
-
+	
 
 try:
 	while 1:                    # Loop will run forever
+		char = getch()
 		print("Press d or q to use the motor")
 		sleep(2)
-		if(keyboard.is_pressed('d')): 
+		if(char == "d"):
 			print("d press")
 			right()
-		elif(keyboard.is_pressed('q')): 
+
+		if(char == "q"):
 			print("q press")
 			left()
 			
