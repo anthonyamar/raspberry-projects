@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO     # Importing RPi library to use the GPIO pins
+from time import sleep
 import keyboard
 import sys, tty, termios, time
 
