@@ -19,9 +19,13 @@ def left():
 
 try:
 	while 1:                    # Loop will run forever
-		if keyboard.is_pressed('d'): right()
-			
-		if keyboard.is_pressed('q'): left()
+		print("Press d or q to use the motor")
+		if keyboard.is_pressed('d'): 
+			print("d press")
+			right()
+		elif keyboard.is_pressed('q'): 
+			print("q press")
+			left()
 			
 #		p.ChangeDutyCycle(0.5)  # Move servo to 0 degrees
 #		sleep(1)                # Delay of 1 sec
