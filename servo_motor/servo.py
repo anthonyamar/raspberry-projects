@@ -23,18 +23,17 @@ def getch():
 
 
 def right():
-	p.ChangeDutyCycle(4.5)
+	p.ChangeDutyCycle(100)
 
 	
 def left():
-	p.ChangeDutyCycle(0.5)
+	p.ChangeDutyCycle(100)
 	
 
 try:
 	while 1:                    # Loop will run forever
-		char = getch()
 		print("Press d or q to use the motor")
-		sleep(2)
+		char = getch()
 		if(char == "d"):
 			print("d press")
 			right()
