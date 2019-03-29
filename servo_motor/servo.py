@@ -11,7 +11,7 @@ p = GPIO.PWM(servo_pin, 50)     # Created PWM channel at 50Hz frequency
 p.start(2.5) 
 
 def right():
-	p.ChangeDutyCycle(0.5)
+	p.ChangeDutyCycle(4.5)
 	
 def left():
 	p.ChangeDutyCycle(0.5)
@@ -20,10 +20,11 @@ def left():
 try:
 	while 1:                    # Loop will run forever
 		print("Press d or q to use the motor")
-		if keyboard.is_pressed('d'): 
+		sleep(2)
+		if(keyboard.is_pressed('d')): 
 			print("d press")
 			right()
-		elif keyboard.is_pressed('q'): 
+		elif(keyboard.is_pressed('q')): 
 			print("q press")
 			left()
 			
